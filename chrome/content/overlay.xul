@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet href="chrome://downloadstatusbutton/skin/toolbarbutton.css" type="text/css"?>
+
+<!DOCTYPE overlay [
+<!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd">
+%browserDTD;
+<!ENTITY % overlayDTD SYSTEM "chrome://downloadstatusbutton/locale/overlay.dtd">
+%overlayDTD;
+]>
+
+<overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script type="application/javascript" src="chrome://downloadstatusbutton/content/downloadstatusbutton.js"/>
+	
+	<toolbarpalette id="BrowserToolbarPalette">
+		<toolbaritem id="labeled-download-status-button"
+			class="chromeclass-toolbar-additional"
+			label="&downloadStatusButton.label;"
+			onmouseover="downloadStatusButton.onMouseOver();"
+			onmouseout="downloadStatusButton.onMouseOut();">
+			
+			<stack>
+				<toolbarbutton id="download-status-button"
+					class="toolbarbutton-1"
+					observes="Tools:Downloads"/>
+				
+				<label id="download-status-label"
+					value=""
+					mousethrough="always"
+					bottom="0"
+					right="0"/>
+			</stack>
+		</toolbaritem>
+	</toolbarpalette>
+</overlay>
