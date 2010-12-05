@@ -11,7 +11,7 @@ var downloadStatusButton = function() {
 	var downloadProgressListener_ = {
 		onDownloadStateChange: function(aState, aDownload) {
 			downloadStatusLabel_.value = (downloadManager_.activeDownloadCount == 0) ?
-				"none" : downloadManager_.activeDownloadCount.toString();
+				"" : downloadManager_.activeDownloadCount.toString();
 		},
 		
 		onProgressChange: function(aWebProgress, aRequest, aCurSelfProgress,
