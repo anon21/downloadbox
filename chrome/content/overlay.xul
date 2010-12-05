@@ -15,9 +15,7 @@
 	<toolbarpalette id="BrowserToolbarPalette">
 		<toolbaritem id="labeled-download-status-button"
 			class="chromeclass-toolbar-additional"
-			label="&downloadStatusButton.label;"
-			onmouseover="downloadStatusButton.onMouseOver();"
-			onmouseout="downloadStatusButton.onMouseOut();">
+			label="&downloadStatusButton.label;">
 			
 			<stack>
 				<toolbarbutton id="download-status-button"
