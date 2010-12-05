@@ -6,7 +6,7 @@
 	<Description about="urn:mozilla:install-manifest">
 		<em:name>Download Status Button</em:name>
 		<em:id>{bc757c7f-e10b-45d7-a907-ce680c715827}</em:id>
-		<em:version>0.1.0</em:version>
+		<em:version>0.1.1</em:version>
 		<em:type>2</em:type>
 		<em:description>A toolbar button for viewing download status.</em:description>
 		<em:creator>anon21</em:creator>
