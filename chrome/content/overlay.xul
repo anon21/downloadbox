@@ -22,6 +22,13 @@
 					class="toolbarbutton-1"
 					observes="Tools:Downloads"/>
 				
+				<vbox id="download-status-progress"
+					mousethrough="always">
+					
+					<spacer id="download-status-progress-remainder" flex="1"/>
+					<spacer id="download-status-progress-bar"/>
+				</vbox>
+				
 				<label id="download-status-label"
 					value=""
 					mousethrough="always"

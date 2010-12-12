@@ -11,7 +11,17 @@
 
 #download-status-label {
 	font-family: sans-serif;
-	font-size: 8pt;
+	font-size: 10px;
 	font-weight: bold;
 	color: #404040;
+}
+
+#download-status-progress {
+	margin: 1px 3px;
+	border-radius: 4.5px;
+	overflow: hidden;
+}
+
+#download-status-progress-bar {
+	background-color: rgba(0, 255, 0, 0.4);
 }
