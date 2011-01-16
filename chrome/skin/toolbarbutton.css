@@ -17,11 +17,18 @@
 }
 
 #download-status-progress {
-	margin: 1px 3px;
-	border-radius: 4.5px;
+	margin: 0px 2px;
 	overflow: hidden;
+	border-style: none;
+	border-width: 0px 1px;
+}
+
+#download-status-progress.download-status-progress-on-downloading {
+	-moz-border-image: url("gradient-border.png") 0 1 stretch;
 }
 
 #download-status-progress-bar {
-	background-color: rgba(0, 255, 0, 0.4);
+	background-image: url("gradient-background.png");
+	background-position: bottom;
+	background-repeat: no-repeat;
 }

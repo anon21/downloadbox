@@ -12,12 +12,20 @@ var downloadStatusButton = function() {
 	
 	var registered_ = false;
 	
-	// アクティブなダウンロード数を表示するラベルを更新する
-	function updateActiveCountLabel() {
+	// ボタンの状態を更新する
+	function updateDownloadStatusProgress() {
 		if( downloadManager_.activeDownloadCount == 0 ) {
+			// プログレスボタン用の枠線を非表示にする
+			downloadStatusProgress_.className = "";
+			
+			// アクティブダウンロード数を非表示にする
 			downloadStatusProgressBar_.style.height = "0px";
 			downloadStatusLabel_.value = "";
 		} else {
+			// プログレスボタン用の枠線を表示する
+			downloadStatusProgress_.className = "download-status-progress-on-downloading";
+			
+			// アクティブダウンロード数を表示する
 			downloadStatusLabel_.value = downloadManager_.activeDownloadCount.toString();
 		}
 	}
@@ -25,7 +33,7 @@ var downloadStatusButton = function() {
 	// ダウンロードの進行状態を監視するためのイベントリスナ
 	var downloadProgressListener_ = {
 		onDownloadStateChange: function(aState, aDownload) {
-			updateActiveCountLabel();
+			updateDownloadStatusProgress();
 		},
 		
 		onProgressChange: function(aWebProgress, aRequest, aCurSelfProgress,
@@ -58,7 +66,7 @@ var downloadStatusButton = function() {
 	};
 	
 	// イベントリスナ等を登録する
-	function register() {
+	function registerObservation() {
 		// 進行状態の監視
 		downloadManager_.addListener(downloadProgressListener_);
 		
@@ -67,7 +75,7 @@ var downloadStatusButton = function() {
 	}
 	
 	// イベントリスト等の登録を解除する
-	function unregister() {
+	function unregisterObservation() {
 		// 進行状態の監視の解除
 		downloadManager_.removeListener(downloadProgressListener_);
 		
@@ -76,7 +84,7 @@ var downloadStatusButton = function() {
 	}
 	
 	// ツールバーボタンの状態が変更されたとき(および初期化時)呼び出されるメソッド
-	function update() {
+	function updateToolbarCustomization() {
 		var downloadStatusProgress = document.getElementById("download-status-progress");
 		
 		if( downloadStatusProgress ) {
@@ -84,13 +92,16 @@ var downloadStatusButton = function() {
 			downloadStatusProgressBar_ = document.getElementById("download-status-progress-bar");
 			downloadStatusLabel_ = document.getElementById("download-status-label");
 			
-			if( !registered_ )
-				register();
+			downloadStatusProgressBar_.style.backgroundSize =
+				"100% " + downloadStatusProgress_.boxObject.height + "px";
 			
-			updateActiveCountLabel();
+			if( !registered_ )
+				registerObservation();
+			
+			updateDownloadStatusProgress();
 		} else {
 			if( registered_ )
-				unregister();
+				unregisterObservation();
 			
 			downloadStatusProgress_ = null;
 			downloadStatusProgressBar_ = null;
@@ -100,25 +111,25 @@ var downloadStatusButton = function() {
 	
 	return {
 		onLoad: function() {
-			update();
+			updateToolbarCustomization();
 			
 			// ツールバーボタンのカスタマイズを監視
 			document.getElementById("navigator-toolbox")
-				.addEventListener('dragdrop', update, false);
+				.addEventListener('dragdrop', updateToolbarCustomization, false);
 			
 			document.getElementById("addon-bar")
-				.addEventListener('dragdrop', update, false);
+				.addEventListener('dragdrop', updateToolbarCustomization, false);
 		},
 		
 		onUnload: function() {
-			unregister();
+			unregisterObservation();
 			
 			// ツールバーボタンのカスタマイズの監視を解除
 			document.getElementById("navigator-toolbox")
-				.removeEventListener('dragdrop', update, false);
+				.removeEventListener('dragdrop', updateToolbarCustomization, false);
 			
 			document.getElementById("addon-bar")
-				.removeEventListener('dragdrop', update, false);
+				.removeEventListener('dragdrop', updateToolbarCustomization, false);
 		},
 	};
 }();
