@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?xml-stylesheet href="chrome://downloadstatusbutton/skin/toolbarbutton.css" type="text/css"?>
+<?xml-stylesheet href="chrome://downloadbox/skin/toolbarbutton.css" type="text/css"?>
 
 <!DOCTYPE overlay [
 <!ENTITY % browserDTD SYSTEM "chrome://browser/locale/browser.dtd">
 %browserDTD;
-<!ENTITY % overlayDTD SYSTEM "chrome://downloadstatusbutton/locale/overlay.dtd">
+<!ENTITY % overlayDTD SYSTEM "chrome://downloadbox/locale/overlay.dtd">
 %overlayDTD;
 ]>
 
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-	<script type="application/javascript" src="chrome://downloadstatusbutton/content/downloadstatusbutton.js"/>
+	<script type="application/javascript" src="chrome://downloadbox/content/downloadbox.js"/>
 	
 	<toolbarpalette id="BrowserToolbarPalette">
-		<toolbaritem id="labeled-download-status-button"
+		<toolbaritem id="downloadbox-button"
 			class="chromeclass-toolbar-additional"
-			label="&downloadStatusButton.label;">
+			label="&downloadbox.button.label;">
 			
 			<stack>
-				<toolbarbutton id="download-status-button"
+				<toolbarbutton id="downloadbox-button"
 					class="toolbarbutton-1"
 					observes="Tools:Downloads"/>
 				
-				<vbox id="download-status-progress"
+				<vbox id="downloadbox-progress"
 					mousethrough="always">
 					
-					<spacer id="download-status-progress-remainder" flex="1"/>
-					<spacer id="download-status-progress-bar"/>
+					<spacer id="downloadbox-progress-remainder" flex="1"/>
+					<spacer id="downloadbox-progress-bar"/>
 				</vbox>
 				
-				<label id="download-status-label"
+				<label id="downloadbox-label"
 					value=""
 					mousethrough="always"
 					bottom="0"

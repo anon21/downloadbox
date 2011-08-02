@@ -1,34 +1,57 @@
+@charset "utf-8";
 
-#download-status-button {
+/* ボタンのアイコン */
+#downloadbox-button {
 	-moz-image-region: rect(0, 108px, 18px, 90px);
 }
 
-#download-status-button > .toolbarbutton-icon {
+#downloadbox-button > .toolbarbutton-icon {
 	margin: 0pt !important;
 	width: auto !important;
 	height: auto !important;
 }
 
-#download-status-label {
+/* ラベル */
+#downloadbox-label {
 	font-family: sans-serif;
 	font-size: 10px;
 	font-weight: bold;
 	color: #404040;
+	text-shadow: 0px 0px 2px white;
 }
 
-#download-status-progress {
-	margin: 0px 2px;
-	overflow: hidden;
+/* 待機時のプログレス */
+#downloadbox-progress {
 	border-style: none;
 	border-width: 0px 1px;
 }
 
-#download-status-progress.download-status-progress-on-downloading {
-	-moz-border-image: url("gradient-border.png") 0 1 stretch;
+/* ダウンロード進行時のプログレス */
+#addon-bar #downloadbox-progress.downloadbox-progress-downloading {
+	background-image: -moz-linear-gradient(bottom, transparent, rgba(0,0,0,.15) 30%),
+		-moz-linear-gradient(bottom, transparent, rgba(0,0,0,.15) 30%);
+	background-position: left, right;
+	background-size: 1px 100%, 1px 100%;
+	background-repeat: no-repeat;
 }
 
-#download-status-progress-bar {
-	background-image: url("gradient-background.png");
-	background-position: bottom;
+#nav-bar #downloadbox-progress.downloadbox-progress-downloading {
+	margin: 2px 4px;
+}
+
+#TabsToolbar #downloadbox-progress.downloadbox-progress-downloading {
+	background-image: -moz-linear-gradient(transparent, rgba(0,0,0,.25) 30%),
+		-moz-linear-gradient(transparent, rgba(0,0,0,.25) 30%);
+	background-position: 0 -1px, 100% -1px;
+	background-size: 1px 100%, 1px 100%;
 	background-repeat: no-repeat;
+}
+
+/* プログレスのバー部分 */
+#downloadbox-progress-bar {
+	background-color: rgba(0, 255, 0, 0.4);
+}
+
+#downloadbox-progress-bar.downloadbox-progress-bar-paused {
+	background-color: rgba(128, 128, 128, 0.4);
 }

@@ -1,6 +1,6 @@
-del downloadstatusbutton.xpi
+del downloadbox.xpi
 
-7z a -tzip downloadstatusbutton.xpi chrome
-7z a -tzip downloadstatusbutton.xpi defaults
-7z a -tzip downloadstatusbutton.xpi install.rdf
-7z a -tzip downloadstatusbutton.xpi chrome.manifest
+7z a -tzip downloadbox.xpi chrome
+7z a -tzip downloadbox.xpi defaults
+7z a -tzip downloadbox.xpi install.rdf
+7z a -tzip downloadbox.xpi chrome.manifest

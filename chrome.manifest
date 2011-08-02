@@ -1,10 +1,10 @@
-content downloadstatusbutton chrome/content/
+content downloadbox chrome/content/
 
-locale downloadstatusbutton en-US chrome/locale/en-US/
-locale downloadstatusbutton ja-JP chrome/locale/ja-JP/
+locale downloadbox en-US chrome/locale/en-US/
+locale downloadbox ja-JP chrome/locale/ja-JP/
 
-skin downloadstatusbutton classic/1.0 chrome/skin/
+skin downloadbox classic/1.0 chrome/skin/
 
-overlay chrome://browser/content/browser.xul chrome://downloadstatusbutton/content/overlay.xul
+overlay chrome://browser/content/browser.xul chrome://downloadbox/content/overlay.xul
 
-style chrome://global/content/customizeToolbar.xul chrome://downloadstatusbutton/skin/toolbarbutton.css
+style chrome://global/content/customizeToolbar.xul chrome://downloadbox/skin/toolbarbutton.css
